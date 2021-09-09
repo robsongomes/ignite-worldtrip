@@ -1,4 +1,17 @@
-import { Grid, Flex, Text, useBreakpointValue } from "@chakra-ui/react";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
+import {
+  Grid,
+  Icon,
+  Flex,
+  Text,
+  useBreakpointValue,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+} from "@chakra-ui/react";
 
 export function ContinentContent() {
   const isMobile = useBreakpointValue({
@@ -22,7 +35,11 @@ export function ContinentContent() {
         divide-se da Ásia a leste pela divisória de águas dos montes Urais, o
         rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste
       </Text>
-      <Grid mt={isMobile ? "5" : "0"} templateColumns="repeat(3, 1fr)" gap="4">
+      <Grid
+        mt={isMobile ? "5" : "0"}
+        templateColumns="repeat(3, 1fr)"
+        gap={isMobile ? "0" : "5"}
+      >
         <Flex flexDirection="column" justify="center" align="center">
           <Text
             fontSize={["1xl", "2xl", "4xl"]}
@@ -69,6 +86,27 @@ export function ContinentContent() {
             color="gray.700"
           >
             cidades +100
+            <Popover>
+              <PopoverTrigger>
+                <span>
+                  <Icon
+                    cursor="pointer"
+                    as={InfoOutlineIcon}
+                    ml="1"
+                    color="gray.400"
+                    w={["10px", "16px"]}
+                    h={["10px", "16px"]}
+                  />
+                </span>
+              </PopoverTrigger>
+              <PopoverContent w="100px" bg="gray.700" color="yellow.400">
+                <PopoverArrow bg="gray.700" />
+                <PopoverCloseButton />
+                <PopoverBody fontWeight="400" fontSize="lg">
+                  <Text align="center">27</Text>
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
           </Text>
         </Flex>
       </Grid>
